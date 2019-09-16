@@ -1,0 +1,105 @@
+<div class="divPosition textFont">
+    <div class="container boxes ">
+        <div class="box" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+            <img src="https://laudator.ru/wp-content/uploads/2012/01/spa-salon-768x511.jpg">
+
+        </div>
+        <div class="box" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+            <img src="http://img1.restbee.ru/polieznyie-znaniia/spa-tury/511629_85588771.jpg?time=1364140741">
+
+        </div>
+        <div class="box" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+            <img
+                src="https://s.zagranitsa.com/images/guides/19304/original/8b8e0f23af372960582cd97fae5f48be.jpg?1439966805">
+
+        </div>
+        <div class="box" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+            <img src="http://rest.su/upload/iblock/81a/81a401273e11818a7dafd45868981b9e.jpg">
+
+        </div>
+    </div>
+    <div class="container mt-3 textSize" data-aos="fade-up"
+    data-aos-duration="1000">
+        <p>Healing spa salon is a unique and only spa of Balinese massage in Lviv.</p>
+        <p>Only here you can enjoy wonderful massages made by professionally qualified therapists.
+            We can offer you best royal Indonesian treatments ever for your beauty, health and relaxation.</p>
+        <p>Our various SPA-programs will increase body tone, take away excess liquid and symptoms of heavy legs,
+            moisturize
+            skin and improve the condition of the body as a whole.</p>
+        <p>Old traditions of Balinese SPA route from ancient Eastern concepts of harmony of body and spirit, according
+            to
+            which there is a tight connection between the appearance of the man and his relations with the outside
+            world.
+            For many centuries, the Balinese have been cherished ancient recipes of preserving youth and beauty,
+            previously
+            available to royal members only.</p>
+        <p>You will feel the spirit of the islands all around – you will be pleased with colorful ocean fish and live
+            coral,
+            relaxing traditional Balinese music, even furniture and interior is of Balinese origin.</p>
+
+    </div>
+    <div class="container" >
+        <div class="float-left mt-3 mr-4" data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-sine">
+            <img src="http://shopping-gdansk.ru/images/artykul/spa1.jpg"  class="imgText">
+        </div>
+    </div>
+    <div class="container textSize" data-aos="fade-left"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-sine">
+
+        <p class="">The design of each room is made in its unique style, and you can choose the one that you like.</p>
+        <p> High-quality service and magical hands of therapists will certainly please you, you will forget about all
+            your problems and urgent matters and plunge into the world of bliss and harmony.
+            Our main purpose is to keep you happy, cheerful, beautiful and healthy!</p>
+
+        <p class="">In conclusion we can assure you that visiting the world of Balinese SPA, you will open up a new life
+            full of
+            exciting colors, sounds and smells, feel harmony with the surrounding world and with yourself.</p>
+            <p class="font-weight-bold text-center ">You’ll love “Healing spa salon”, and look forward to coming back here
+                again and again!</p>
+    </div>
+    <div class="container mt-5">
+        <h2 class="text-center mt-3" data-aos="flip-down"><b>Masters</b></h2>
+        <div class="form-group container d-flex flex-column">
+            <div [class.active]="order === 'mark'" (click)="setOrder('mark')" class="sortMark">
+                Sort by mark <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+            </div>
+         
+            <div>
+                <p class="sortMark" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
+                    aria-controls="collapse1" (click)="searchMasters()">Search master</p>
+                <span class="collapse" id="collapse1">
+                    <input type="text" class="form-control" placeholder="Search By Name" style="width: 300px"
+                        [(ngModel)]="searchTerm" name="searchTerm" id="searchTerm">
+                </span>
+
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center flex-wrap">
+            <tr *ngFor="let master of masters | masterFilter:searchTerm | orderBy: order:reverse:'case-insensitive'" data-aos="zoom-out-up" data-aos-duration="700">
+
+                <h3 class="text-center">{{master.name}}</h3>
+                <img src="{{master.image}}" alt="" width="220" height="190" class="mr-5 ml-5"
+                    [routerLink]="[ '/about', master.id ]"><br>
+                <h4 class="text-center">{{master.mark}} <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/94/%D0%97%D1%96%D1%80%D0%BA%D0%B0_-_Star.png"
+                        alt="" width="20px" class="imgHover"> </h4>
+                <div class="text-center mt-2 mb-5"><button [routerLink]="[ '/about', master.id ]"
+                        class="btn buttonDetails text-center">More details</button></div>
+        </div>
+        <img *ngIf="isShow" (click)="gotoTop()"
+            src="https://cdn0.iconfinder.com/data/icons/flat-round-arrow-arrow-head/512/Green_Arrow_Top-512.png" alt=""
+            class="topButton">
+    </div>
+</div>

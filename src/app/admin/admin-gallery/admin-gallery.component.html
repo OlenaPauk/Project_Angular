@@ -1,0 +1,133 @@
+<div class="container divPosition">
+
+    <button type="button" class="btn btn-secondary pos" data-toggle="modal" data-target="#galleryModalCenter">
+        Add new photo
+    </button>
+
+    <div class="modal fade" id="galleryModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="galleryModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input (change)="upload($event)" accept=".png,.jpg,.jpeg" type="file"
+                                    class="custom-file-input" id="galleryFile" name="galleryFile" required>
+                                <label class="custom-file-label" for="galleryFile">Choose file...</label>
+                            </div>
+                        </div>
+
+                        <div class="progress mt-2 mb-2">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                [style.width]="(uploadProgress | async) + '%'"
+                                [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                            File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                        </div>
+                        <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                            <button type="button" class="btn btn-primary" (click)="task.pause()"
+                                [disabled]="state === 'paused'">Pause</button>
+                            <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                                [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                            <button type="button" class="btn btn-primary" (click)="task.resume()"
+                                [disabled]="state === 'running'">Resume</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="isAddGallery()" type="button" class="btn btn-success"
+                        [disabled]="!image" data-dismiss="modal">Add
+                        image</button>
+              
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="galleryEditModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="galleryEditModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input (change)="upload($event)" accept=".png,.jpg,.jpeg" type="file"
+                                class="custom-file-input" id="galleryFile1" name="galleryFile1" required>
+                            <label class="custom-file-label" for="galleryFile1">Choose file...</label>
+                        </div>
+                    </div>
+
+                    <div class="progress mt-2 mb-2">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            [style.width]="(uploadProgress | async) + '%'"
+                            [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                        File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                    </div>
+                    <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                        <button type="button" class="btn btn-primary" (click)="task.pause()"
+                            [disabled]="state === 'paused'">Pause</button>
+                        <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                            [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                        <button type="button" class="btn btn-primary" (click)="task.resume()"
+                            [disabled]="state === 'running'">Resume</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               
+                <button (click)="isSaveEditGallery()" type="button" class="btn btn-success"
+                    [disabled]="!image" data-dismiss="modal">Save
+                    image</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <table class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let gallery of adminGallery; let i=index" data-aos="fade-right">
+                <td>{{i+1}}</td>
+                <td><img src="{{gallery.image}}" alt="" width="200" height="150"></td>
+                <td>
+                    <button class="btn btn-warning" (click)="isEditGallery(gallery)" data-toggle="modal"
+                        data-target="#galleryEditModalCenter">Edit</button>
+                </td>
+                <td><button class="btn btn-danger" (click)="isDeleteGallery(gallery)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+

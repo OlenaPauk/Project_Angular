@@ -1,0 +1,147 @@
+<div class="container mt-3 headerPosition headerFlex">
+
+    <div class="nav mb-4 text-success justify-content-center headerButtonLogo">
+        <img src="https://static.wixstatic.com/media/41d000_8ebb7d13d81ea4139c54644b997e8076.png/v1/fill/w_45,h_46,al_c,q_80,usm_0.66_1.00_0.01/41d000_8ebb7d13d81ea4139c54644b997e8076.webp"
+            alt="">
+        <h2 class="text-success ml-2 fontSpa">Healing spa salon</h2>
+
+    </div>
+    <div class="menuUl ">
+        <ul class="nav nav-tabs justify-content-center textFont">
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="home">Home</a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="spa">Spa</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="about">About us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="gallery">Gallery</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="contact">Contacts</a>
+            </li>
+            <!-- 
+            <div>
+                <li class="nav-item">
+                    <div fxFlex="200px" fxLayoutAlign="end" class="avatar-col">
+                        <ng-container *ngIf="authService.isLoggedIn; else: loginTmpl">
+
+                <li class="nav-item logButton">
+                    <a class="nav-link" routerLinkActive="active" (click)="authService.logout()"
+                        routerLink="home">Logout</a>
+                </li>
+                </ng-container>
+                <ng-template #loginTmpl>
+                    <li class="nav-item logButton">
+                        <a class="nav-link" routerLinkActive="active" (click)="open(content)">Login</a>
+                    </li>
+                </ng-template>
+            </div>
+            </li>
+    </div> -->
+        </ul>
+    </div>
+
+    <div class="pos-f-t burger">
+        <div class="collapse" id="navbarToggleExternalContent">
+
+            <div class="bg-light p-4 ">
+                <p class="fontSpa">Healing spa salon</p>
+
+                <button class="navbar-toggler btn btn-block" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <a data-toggle="collapse" aria-expanded="false" class="nav-link" routerLinkActive="active"
+                        routerLink="home"> Home </a>
+
+                </button>
+
+                <button class="navbar-toggler btn btn-block" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <a data-toggle="collapse" aria-expanded="false" class="nav-link" routerLinkActive="active"
+                        routerLink="spa">Spa</a>
+                </button>
+
+
+                <button class="navbar-toggler btn btn-block" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <a data-toggle="collapse" aria-expanded="false" class="nav-link" routerLinkActive="active"
+                        routerLink="about">About us</a>
+                </button>
+
+
+
+                <button class="navbar-toggler btn btn-block" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <a data-toggle="collapse" aria-expanded="false" class="nav-link" routerLinkActive="active"
+                        routerLink="gallery">Gallery</a>
+                </button>
+
+
+                <button class="navbar-toggler btn btn-block" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <a data-toggle="collapse " aria-expanded="false" class="nav-link" routerLinkActive="active"
+                        routerLink="contact">Contacts</a>
+                </button>
+
+            </div>
+        </div>
+        <nav class="navbar navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+
+
+</div>
+
+<!-- Modal -->
+
+<!-- <ng-template #content let-c="close" let-d="dismiss" class="sticky-top">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" (click)="enterAdmin()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form class="pl-4 pr-4 mt-3">
+        <div class="form-group">
+            <label for="adminEmail">Login(admin)</label>
+            <input [(ngModel)]="adminEmail" type="text" class="form-control" id="adminEmail"
+                aria-describedby="emailHelp" placeholder="Enter login" name="adminEmail" required>
+
+        </div>
+        <div class="form-group">
+            <label for="adminPass">Password(admin)</label>
+            <input [(ngModel)]="adminPass" type="password" class="form-control" id="adminPass" placeholder="Password"
+                name="adminPass" required>
+        </div>
+
+    </form>
+    <div class="modal-footer">
+
+        <button (click)="enterAdmin()" type="button" class="btn btn-secondary" aria-label="Close"
+            (click)="d('Cross click')">
+            <span aria-hidden="true">Close</span>
+        </button>
+        <button [disabled]="adminEmail!=='admin' || adminPass!=='admin' " type="button" class="btn btn-primary"
+            routerLinkActive="active" routerLink="admin" (click)="authService.login()" (click)="enterAdmin()"
+            (click)="c('Save click')">Enter
+            Admin</button>
+    </div>
+</ng-template> -->

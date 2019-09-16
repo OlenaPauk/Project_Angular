@@ -1,0 +1,11 @@
+
+<aside class="float-left menuAdmin">
+    <a class="nav-link" routerLinkActive="active" routerLink="masters">Masters</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="services">Services</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="gallery">Gallery</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="clientMessage">Client message</a>
+    <img *ngIf="isShow" (click)="gotoTop()" src="https://cdn0.iconfinder.com/data/icons/flat-round-arrow-arrow-head/512/Green_Arrow_Top-512.png" alt="" class="topButton">
+</aside>
+<div class="tab-content adminTables" id="v-pills-tabContent">
+    <router-outlet></router-outlet>
+</div>

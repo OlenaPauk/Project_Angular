@@ -1,0 +1,36 @@
+<div class="container d-flex flex-wrap justify-content-around divPosition ">
+    <div class="container spanHidden">
+        <p class="textSort" [class.active]="order === 'price1'" (click)="setOrder('price1')"
+            class="mdl-data-table__cell--non-numeric">
+            Sort by price <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+        </p>
+        <p class="textSort" [class.active]="order === 'mark'" (click)="setOrder('mark')"
+            class="mdl-data-table__cell--non-numeric">
+             Sort by mark  <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+        </p>
+    </div>
+    <div *ngFor="let service of services | orderBy: order:reverse:'case-insensitive' " class="mt-2" data-aos="fade-up"
+        data-aos-duration="1500">
+
+        <div class="descDiv" [routerLink]="[ '/spa', service.id ]"><span
+                class="desc">{{service.name | uppercase}}</span>
+            <img src="{{service.image}}" alt="" class="mediaImg" [routerLink]="[ '/spa', service.id ]"></div>
+        <div>
+            <h5 class="text-center mt-2">{{service.price1}} ₴</h5>
+            <h5 class="text-right">{{service.mark}}<img
+                    src="https://upload.wikimedia.org/wikipedia/commons/9/94/%D0%97%D1%96%D1%80%D0%BA%D0%B0_-_Star.png"
+                    alt="" width="20px" class="ml-2 imgHover"></h5>
+        </div>
+
+        <div class="text-center">
+            <button [routerLink]="[ '/spa', service.id ]" class="btn buttonDetails text-center mb-5">More
+                details</button>
+        </div>
+
+    </div>
+    <img *ngIf="isShow" (click)="gotoTop()"
+        src="https://cdn0.iconfinder.com/data/icons/flat-round-arrow-arrow-head/512/Green_Arrow_Top-512.png" alt=""
+        class="topButton">
+</div>

@@ -1,0 +1,41 @@
+<div class="divPosition">
+    <div class="container mt-2">
+        <p class="galleryText" data-aos="fade-up"
+        data-aos-anchor-placement="bottom-center" 
+        data-aos-duration="900">You will feel the spirit of the islands all around – you will be pleased with colorful
+            ocean fish and live coral,
+            relaxing traditional Balinese music, even furniture and interior is of Balinese origin.</p>
+    </div>
+   
+        <div class="container d-flex justify-content-around flex-wrap mt-3 mb-5">
+
+            <div *ngFor="let gall of gallery; let i=index" class="imgAnim swing mt-4 mb-2 animatImg">
+                <img [src]="gall.image"  class="border rounded imageZoom imgGallery"
+                    (click)="imageItem(i)" data-toggle="modal" data-target="#imgModal" data-aos="zoom-in-down" data-aos-duration="1200">
+            </div>
+
+            <div class="modal fade sliderPosition" id="imgModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bgcModal">
+                        <div class="modal-body">
+                            <ngb-carousel #myCarousel [interval]="false" [activeId]="number">
+                                <ng-template ngbSlide *ngFor="let image of arrImage; let i=index">
+                                    <div class="piscum-img-wrapper imgBox">
+                                        <img [src]="image" [ngClass]="{'image-item': true}">
+                                    </div>
+                                    <div class="carousel-caption"></div>
+                                </ng-template>
+
+                            </ngb-carousel>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+   
+    <img *ngIf="isShow" (click)="gotoTop()"
+        src="https://cdn0.iconfinder.com/data/icons/flat-round-arrow-arrow-head/512/Green_Arrow_Top-512.png" alt=""
+        class="topButton">
+</div>

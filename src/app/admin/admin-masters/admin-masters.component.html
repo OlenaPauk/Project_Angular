@@ -1,0 +1,116 @@
+<div class="container divPosition">
+
+    <button (click)="open(content)" type="button" class="btn btn-secondary pos" data-toggle="modal"
+        data-target="#addMasterModalCenter"> Add new
+        master
+    </button>
+
+    <ng-template #content let-c="close" let-d="dismiss" class="sticky-top">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" (click)="closeModal()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form class="pl-4 pr-4">
+            <div class="form-group">
+                <label for="masterName">Name</label>
+                <input [(ngModel)]="masterName" name="masterName" type="text" class="form-control" id="masterName"
+                    required pattern="[a-zA-Z ]*">
+            </div>
+            <div class="form-group">
+                <label for="masterAge">Age</label>
+                <input [(ngModel)]="masterAge" name="masterAge" type="number" onkeydown="return event.keyCode !== 69"
+                    class="form-control" id="masterAge" required>
+            </div>
+
+            <div class="form-group">
+                <label for="masterSertificate">Descriptions</label>
+                <textarea [(ngModel)]="masterSertificate" name="masterSertificate" class="form-control"
+                    id="masterSertificate" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="masterMark">Mark</label>
+                <input [(ngModel)]="masterMark" name="masterMark" type="number" onkeydown="return event.keyCode !== 69"
+                    class="form-control" id="masterMark" required>
+            </div>
+
+            <div class="form-group">
+                <div class="custom-file">
+                    <input (change)="upload($event)" accept=".png,.jpg,.jpeg" type="file" class="custom-file-input"
+                        id="masterFile" required>
+                    <label class="custom-file-label" for="masterFile">Choose file...</label>
+                </div>
+            </div>
+            <div class="progress mt-2 mb-2">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                    aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+            <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+            </div>
+            <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                <button type="button" class="btn btn-primary" (click)="task.pause()"
+                    [disabled]="state === 'paused'">Pause</button>
+                <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                    [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="task.resume()"
+                    [disabled]="state === 'running'">Resume</button>
+            </div>
+
+
+        </form>
+        <div class="modal-footer">
+            <button (click)="closeModal()" type="button" class="btn btn-secondary" aria-label="Close"
+                (click)="d('Cross click')">
+                <span aria-hidden="true">Close</span>
+            </button>
+            <button [disabled]="!masterName || !masterAge || !masterSertificate || !masterMark || !image"
+                (click)="isAddMaster()" type="button" class="btn btn-success" data-dismiss="modal" *ngIf="!editStatus"
+                (click)="c('Save click')">Add
+                master</button>
+            <button [disabled]="!masterName || !masterAge || !masterSertificate || !masterMark || !image"
+                (click)="isSaveEditMaster()" type="button" class="btn btn-success" data-dismiss="modal"
+                *ngIf="editStatus" (click)="c('Save click')">Save
+                master</button>
+        </div>
+    </ng-template>
+
+
+
+    <table class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Description</th>
+                <th scope="col">Mark</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let master of adminMasters; let i=index" data-aos="fade-right">
+                <td>{{i+1}}</td>
+                <td><img src="{{master.image}}" alt="" width="220" height="190"></td>
+                <td>{{master.name}}</td>
+
+                <td>{{master.age}}</td>
+                <td class="descFloat">
+                    <div class="tdFloat">{{master.sertificate}}</div>
+                </td>
+                <td>{{master.mark}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="isEditMaster(master)" data-toggle="modal"
+                        data-target="#addMasterModalCenter" (click)="open(content)">Edit</button>
+
+                </td>
+                <td><button class="btn btn-danger" (click)="isDeleteMaster(master)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,102 @@
+<div class="divPosition">
+    <div class="container bg-light rounded mt-3 pt-4 contactsPage" data-aos="fade-down" data-aos-duration="2000">
+        <div class="ml-3">
+            <h2 class="text-success">Contacts</h2>
+        </div>
+
+        <div class="container mb-4">
+            <span>Lviv,Ukraine</span><br>
+            <span>79000,Shevchenko street,2</span><br>
+            <span>healingSpaSalon@gmail.com</span>
+        </div>
+        <div class="container">
+            <span>+38 (048) 704-05-05</span><br>
+            <span>+38 (048) 703-99-33</span>
+        </div>
+        <div class="container mb-3 openDay">
+
+            <span>Mon.&nbsp;09:30 - 19:30</span><br>
+            <span>Tue.&nbsp;&nbsp; 09:30 - 19:30</span><br>
+            <span>Wed.&nbsp;09:30 - 19:30</span><br>
+            <span>Thu.&nbsp;&nbsp;09:30 - 19:30</span><br>
+            <span>Fri. &nbsp;&nbsp; 09:30 - 18:30</span><br>
+            <span>Sat.&nbsp;&nbsp; 09:30 - 16:30</span><br>
+            <span>Sun.&nbsp; 10:00 - 16:30</span><br>
+
+        </div>
+    </div>
+    <div class="">
+        <div class="container mapContact">
+            <div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4326.883279508242!2d24.00141556655678!3d49.8465875483892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add99441b1d6d%3A0x20b40d4bc4f12bf0!2z0LLRg9C70LjRhtGPINCo0LXQstGH0LXQvdC60LAsIDIsINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1564330410186!5m2!1suk!2sua"
+                    frameborder="0" style="border:0" allowfullscreen class="rounded-lg mt-5 mb-5" data-aos="fade-right"
+                    data-aos-duration="2000"></iframe>
+            </div>
+
+            <div class="container mt-5">
+                <form action="#0" data-aos="fade-left" data-aos-duration="2000">
+
+                    <div>
+                        <input type="text" pattern="[A-Za-z]*" [(ngModel)]="userName" name="userName" id="userName"
+                            required placeholder=" " />
+                        <label for="userName">Name</label>
+                    </div>
+
+                    <div>
+                        <input type="email" [(ngModel)]="userEmail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+                            name="userEmail" id="userEmail" required placeholder=" " />
+                        <label for="userEmail">Email Address</label>
+                        <div class="requirements">
+                            Must be a valid email address.
+                        </div>
+                    </div>
+                    <div>
+                        <textarea [(ngModel)]="userArea" name="userArea" id="userArea" rows="5" required
+                            placeholder=""></textarea>
+                        <label for="userArea">Message</label>
+                    </div>
+
+
+                    <input type="submit" value="Send" [disabled]="!userName || !userEmail || !userArea"
+                        (click)="isAddMess()" />
+
+                </form>
+              
+                <!--             
+            <form>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="userName"
+                        placeholder="Write your name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="userEmail"
+                        placeholder="Write your email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" [(ngModel)]="userArea" name="userArea" id="userArea" rows="5"
+                        required></textarea>
+                </div>
+                <div class="form-group row ">
+                    <div class="col-sm-10">
+                        <button [disabled]="!userName || !userEmail || !userArea"
+                            type="button" class="btn btn-success" (click)="isAddMess()">Send</button>
+                    </div>
+                </div>
+            </form> -->
+            </div>
+        </div>
+    </div>
+    <div class="container messageCard " >
+            <div class="card" *ngFor="let message of messages; let i=index" data-aos="flip-left">
+                <div class="card-header">
+                    {{message.name}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{message.email}}</h5>
+                    <p class="card-text">{{message.message}}</p>
+
+                </div>
+            </div>
+        </div>
+</div>

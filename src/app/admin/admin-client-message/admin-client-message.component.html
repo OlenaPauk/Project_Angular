@@ -1,0 +1,35 @@
+<div class="container divPosition">
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Message</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Statud message</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of adminMessages; let i=index" data-aos="flip-up">
+        <td>{{i+1}}</td>
+        <td>{{message.name}}</td>
+        <td>{{message.email}}</td>
+        <td>{{message.message}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="isDeleteMess(message)" *ngIf="message.status">Delete</button>
+          <button class="btn btn-danger" (click)="isDeleteMess(message)" *ngIf="!message.status" disabled>Delete</button>
+        </td>
+        <td>
+          <p *ngIf="message.status" class="red">Message was viewed</p>
+          <p *ngIf="!message.status" class="green">New message</p>
+        </td>
+        <td>
+          <input type="checkbox" [checked]="message.status" (click)="changeStatus(message)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

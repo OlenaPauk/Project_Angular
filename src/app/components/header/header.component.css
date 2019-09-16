@@ -1,0 +1,95 @@
+.fontSpa {
+    font-family: Snell Roundhand, cursive;
+}
+
+.headerPosition {
+    /* position: absolute;
+    left: 10%;
+    z-index: 1; */
+    z-index: 10;
+    position: absolute;
+    /* top:0; */
+    /* left:10%; */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: rgb(55, 226, 70);
+    border-radius: 5px;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 5px;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6;
+}
+
+.nav {
+    font-size: 20px;
+}
+
+a, .logButton {
+    color: rgb(22, 92, 33);
+    cursor: pointer;
+}
+
+.textFont {
+    font-family: Georgia, serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.headerButtonLogo {
+    display: flex;
+    justify-content: center;
+}
+
+.headerFlex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.burger {
+    display: none;
+    
+}
+
+@media screen and (max-width: 900px) {
+    .headerFlex {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+ 
+    .headerButtonLogo {
+        display: none;
+    }
+    .fontSpa {
+        font-size: 30px;
+        color: green;
+        text-align: center;
+        font-family: cursive;
+    }
+    a {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .headerFlex {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 0%;
+    }
+    .menuUl {
+        display: none;
+    }
+    .burger {
+        display: block;
+    }
+}

@@ -1,0 +1,153 @@
+.divPosition {
+	position: relative;
+	padding-top: 140px;
+}
+.messageCard{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	/* width: 40%; */
+}
+.card{
+	width: 40%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+/* .ng-valid[required], .ng-valid.required {
+    border-left:  5px solid green;
+}
+.ng-invalid:not(form) {
+    border-left:  5px solid red;
+} */
+
+form {
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+form>div {
+	position: relative;
+	background: white;
+	border-bottom: 1px solid #ccc;
+}
+
+form>div>label {
+	opacity: 0.3;
+	font-weight: bold;
+	position: absolute;
+	top: 22px;
+	left: 20px;
+}
+
+form>div>input[type="text"], form>div>input[type="email"], form>div>textarea {
+	width: 100%;
+	border: 0;
+	padding: 20px 20px 20px 50px;
+}
+
+form>div>input[type="text"]:focus, form>div>input[type="email"]:focus, form>div>textarea:focus {
+	outline: 0;
+	background: white;
+}
+
+form>div>input[type="text"]:focus+label, form>div>input[type="email"]:focus+label, form>div>textarea:focus+label {
+	opacity: 0;
+}
+
+form>div>input[type="text"]:valid, form>div>input[type="email"]:valid, form>div>textarea:valid {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 20px 20px;
+}
+
+form>div>input[type="text"]:valid+label, form>div>input[type="email"]:valid+label, form>div>textarea:valid+label {
+	opacity: 0;
+}
+
+/* form>div>input[type="text"]:invalid:not(:focus):not(:placeholder-shown), form>div>input[type="email"]:invalid:not(:focus):not(:placeholder-shown), form>div>textarea:invalid:not(:focus):not(:placeholder-shown) {
+	background: pink;
+} */
+
+form>div>input[type="text"]:invalid:not(:focus):not(:placeholder-shown)+label, form>div>input[type="email"]:invalid:not(:focus):not(:placeholder-shown)+label, form>div>textarea:invalid:not(:focus):not(:placeholder-shown)+label {
+	opacity: 0;
+}
+
+form>div>input[type="text"]:invalid:focus:not(:placeholder-shown)~.requirements, form>div>input[type="email"]:invalid:focus:not(:placeholder-shown)~.requirements, form>div>textarea:invalid:focus:not(:placeholder-shown)~.requirements {
+	max-height: 200px;
+	padding: 0 30px 20px 50px;
+}
+
+.requirements {
+	padding: 0 30px 0 50px;
+	/* color: #999; */
+	max-height: 0;
+	transition: 0.28s;
+	overflow: hidden;
+	color: red;
+	font-style: italic;
+}
+
+input[type="submit"] {
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	background: #41D873;
+	color: white;
+	border: 0;
+	padding: 20px;
+	font-size: 1.2rem;
+	border-radius: 5px;
+}
+
+.contactsPage {
+	display: flex;
+	justify-content: space-around;
+}
+
+iframe {
+	width: 600px;
+	height: 400px;
+}
+.mapContact{
+	display: flex;
+	justify-content: space-around;
+
+}
+
+@media screen and (max-width: 900px) {
+	.contactsPage {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-wrap: wrap;
+		text-align: center;
+	}
+	.openDay {
+		margin: 0 auto;
+	}
+	.divPosition {
+		padding-top: 120px;
+	}
+	iframe {
+		width: 400px;
+		height: 300px;
+		margin: 0 auto;
+	}
+	.mapContact{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		
+	}
+}
+@media screen and (max-width: 380px) {
+	
+	iframe {
+		width: 300px;
+		height: 250px;
+		margin: 0 auto;
+	}
+
+	
+}

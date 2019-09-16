@@ -1,0 +1,13 @@
+.divPosition {
+    position: relative;
+    margin-top: 50px;
+}
+table{
+    margin-bottom: 200px;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
