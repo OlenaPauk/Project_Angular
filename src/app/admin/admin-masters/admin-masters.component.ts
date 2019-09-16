@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MastersService } from 'src/app/shared/services/masters.service';
-import { IMasters } from 'src/app/shared/interfaces/masters.interface';
-import { NewMasters } from 'src/app/shared/classes/new-masters.class';
+import { MastersService } from './../../shared/services/masters.service';
+import { IMasters } from './../../shared/interfaces/masters.interface';
+import { NewMasters } from './../../shared/classes/new-masters.class';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';

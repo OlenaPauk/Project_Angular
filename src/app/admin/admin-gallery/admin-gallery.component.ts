@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { GalleryService } from 'src/app/shared/services/gallery.service';
-import { IGallery } from 'src/app/shared/interfaces/gallery.interface';
+import { GalleryService } from './../../shared/services/gallery.service';
+import { IGallery } from './../../shared/interfaces/gallery.interface';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';
-import { NewGallery } from 'src/app/shared/classes/new-gallery.class';
+import { NewGallery } from './../../shared/classes/new-gallery.class';
 @Component({
   selector: 'app-admin-gallery',
   templateUrl: './admin-gallery.component.html',

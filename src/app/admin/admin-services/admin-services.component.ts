@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesService } from 'src/app/shared/services/services.service';
-import { IServices } from 'src/app/shared/interfaces/services.interface';
-import { NewServices } from 'src/app/shared/classes/new-services.class';
+import { ServicesService } from './../../shared/services/services.service';
+import { IServices } from './../../shared/interfaces/services.interface';
+import { NewServices } from './../../shared/classes/new-services.class';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'src/app/shared/services/message.service';
-import { IMessage } from 'src/app/shared/interfaces/message.interface';
+import { MessageService } from './../../shared/services/message.service';
+import { IMessage } from './../../shared/interfaces/message.interface';
 
 @Component({
   selector: 'app-admin-client-message',

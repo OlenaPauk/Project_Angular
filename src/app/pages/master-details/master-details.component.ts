@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IMasters } from 'src/app/shared/interfaces/masters.interface';
-import { MasterDetailsService } from 'src/app/shared/services/master-details.service';
+import { IMasters } from './../../shared/interfaces/masters.interface';
+import { MasterDetailsService } from './../../shared/services/master-details.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

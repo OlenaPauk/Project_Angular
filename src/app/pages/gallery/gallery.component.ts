@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { GalleryService } from 'src/app/shared/services/gallery.service';
-import { IGallery } from 'src/app/shared/interfaces/gallery.interface';
+import { GalleryService } from './../../shared/services/gallery.service';
+import { IGallery } from './../../shared/interfaces/gallery.interface';
 
 // import {
 //   trigger,

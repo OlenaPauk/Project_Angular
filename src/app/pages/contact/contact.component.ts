@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'src/app/shared/services/message.service';
-import { IMessage } from 'src/app/shared/interfaces/message.interface';
-import { NewMessage } from 'src/app/shared/classes/new-message.class';
+import { MessageService } from './../../shared/services/message.service';
+import { IMessage } from './../../shared/interfaces/message.interface';
+import { NewMessage } from './../../shared/classes/new-message.class';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

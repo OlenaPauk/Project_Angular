@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ServicesService } from 'src/app/shared/services/services.service';
-import { IServices } from 'src/app/shared/interfaces/services.interface';
+import { ServicesService } from './../../shared/services/services.service';
+import { IServices } from './../../shared/interfaces/services.interface';
 import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
